@@ -39,6 +39,10 @@ t_2 = 100 # nm
 # Definitions #
 ###############
 
+# refractive index array setup
+if type(n_s) == np.ndarray:
+	n_0 = np.array( [ n_0 ] * len(wavelens) )
+
 # plot set up
 fig, ax = plt.subplots()
 wavelens = np.arange(start=250.0, stop=1460.0, step=10.0)
