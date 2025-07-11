@@ -51,6 +51,14 @@ def r(ni, nf):
 	"""
 	return (ni-nf)/(ni+nf)
 
+idx = 0
+for i, wave in enumerate(wavelens): 
+    if round(wavelen/10) == wave/10:
+        idx = i
+
+wavelen_index_rounded = idx
+n_1_i = n_1[wavelen_index_rounded]
+n_2_i = n_2[wavelen_index_rounded]
 
 ################
 # Calculations #
@@ -73,7 +81,7 @@ r2 = r(n_1, n_s)                            # real array, Fresnel's coefficient 
 
 R_single = []
 for i, wave in enumerate(wavelens): 
-	delta1 = 2*np.pi*t_1*n_1[i]/wave
+	delta1 = 2*np.pi*t_1*n_1_i/wave
 	
 	exp_pos1 = np.exp(1j*delta1)
 	exp_neg1 = np.exp(-1j*delta1)
@@ -105,8 +113,8 @@ r23 = r(n_2, n_s)    # real array, Fresnel's coefficient at coating2-substrate i
 
 R_double = []
 for i, wave in enumerate(wavelens): 
-	delta1 = 2*np.pi*t_1*n_1[i]/wave
-	delta2 = 2*np.pi*t_2*n_2[i]/wave
+	delta1 = 2*np.pi*t_1*n_1_i/wave
+	delta2 = 2*np.pi*t_2*n_2_i/wave
 	
 	exp_pos1 = np.exp(1j*delta1)
 	exp_neg1 = np.exp(-1j*delta1)
