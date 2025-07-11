@@ -38,5 +38,5 @@ A Python script that allows the use of complex refractive indices also exists bu
 
 
 ## References:
-[1] https://iopscience.iop.org/article/10.1088/0034-4885/23/1/301/pdf
-[2] Macleod 2018 Thin film optical filters 4th edition
+1. https://iopscience.iop.org/article/10.1088/0034-4885/23/1/301/pdf
+2. Macleod 2018 Thin film optical filters 4th edition
