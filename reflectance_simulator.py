@@ -132,16 +132,16 @@ for j, theta_deg in enumerate(thetas_deg):
 	
 	# calculate Fresnel's reflection coefficients at each interface
 	# s-polarization
-    r0L_s = r_s(n_0, n_1, theta)     # real array, air-L interface
-    rLH_s = r_s(n_1, n_2, theta_1)   # real array, L-H interface
-    rHL_s = r_s(n_2, n_1, theta_2)   # real array, H-L interface
-    rHd_s = r_s(n_2, n_sub, theta_2) # real array, H-diamond interface
+    r0L_s = r_s(n_0, n_1, theta)     # air-L interface
+    rLH_s = r_s(n_1, n_2, theta_1)   # L-H interface
+    rHL_s = r_s(n_2, n_1, theta_2)   # H-L interface
+    rHd_s = r_s(n_2, n_sub, theta_2) # H-sub interface
 	
 	# p-polarization
-    r0L_p = r_p(n_0, n_1, theta)     # real array, air-L interface
-    rLH_p = r_p(n_1, n_2, theta_1)   # real array, L-H interface
-    rHL_p = r_p(n_2, n_1, theta_2)   # real array, H-L interface
-    rHd_p = r_p(n_2, n_sub, theta_2) # real array, H-diamond interface
+    r0L_p = r_p(n_0, n_1, theta)     # air-L interface
+    rLH_p = r_p(n_1, n_2, theta_1)   # L-H interface
+    rHL_p = r_p(n_2, n_1, theta_2)   # H-L interface
+    rHd_p = r_p(n_2, n_sub, theta_2) # H-sub interface
 	
 	# initialize empty lists for reflectance calculations
     R_multi_s = []
@@ -159,7 +159,7 @@ for j, theta_deg in enumerate(thetas_deg):
                 delta = 2*np.pi*d_array[k]*n_1[i]*np.cos(theta_1[i])/wave
                 rs = rLH_s
                 rp = rLH_p
-            # last layer contacting diamond
+            # last layer contacting substrate
             elif (k%2 == 1) and (k == N-1):
                 delta = 2*np.pi*d_array[k]*n_2[i]*np.cos(theta_2[i])/wave
                 rs = rHd_s
@@ -214,3 +214,4 @@ ax.set(xlabel='Wavelength (nm)', ylabel='Reflectance (%)', title=f'{HIGH_INDEX}/
 ax.legend()
 fig.tight_layout()
 fig.show()
+
