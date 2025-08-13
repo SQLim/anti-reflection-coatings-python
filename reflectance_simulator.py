@@ -193,12 +193,8 @@ for j, theta_deg in enumerate(thetas_deg):
             E_p = M_p_array[m] @ E_p
 
         # calculate reflectance
-        num_s = E_s[1][0]*E_s[1][0].conj()
-        den_s = E_s[0][0]*E_s[0][0].conj()
-        num_p = E_p[1][0]*E_p[1][0].conj()
-        den_p = E_p[0][0]*E_p[0][0].conj()
-        R_multi_s += [num_s/den_s * 100] 
-        R_multi_p += [num_p/den_p * 100] 
+        R_multi_s += [np.abs(E_s[1][0] / E_s[0][0])**2] 
+        R_multi_p += [np.abs(E_p[1][0] / E_p[0][0])**2] 
     
     # cast reflectance list into array type
     R_multi_s = np.array(R_multi_s)
@@ -214,4 +210,5 @@ ax.set(xlabel='Wavelength (nm)', ylabel='Reflectance (%)', title=f'{HIGH_INDEX}/
 ax.legend()
 fig.tight_layout()
 fig.show()
+
 
